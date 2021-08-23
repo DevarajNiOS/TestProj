@@ -33,16 +33,4 @@ jobs:
         env:
           destination: ${{ matrix.destination }}
           DEVELOPER_DIR: ${{ matrix.xcode }}
-      - name: Archive Failed Tests artifacts
-        if: failure()
-        uses: actions/upload-artifact@v1
-        with:
-          name: FailureDiff
-          path: YouAppTests/FailureDiffs
-      - name: Releasing
-        run: bundle exec fastlane release
-        env:
-          DEVELOPER_DIR: ${{ matrix.xcode }}
-          ...
-          YOUR_ENVIRONMENT_VARIABLES_HERE: ${{ secrets.XXX }}
-          ...
+      
