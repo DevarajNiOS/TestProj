@@ -51,6 +51,7 @@ jobs:
         security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "" "$KEYCHAIN"
         security find-identity
         echo $PWD
+        /usr/bin/security find-identity -v -p codesigning
         /usr/bin/codesign --force -s "Apple Development: Muralidhar Somisetty (958U3P4SWR)"
         tar xzvf $DECRYPTED_PROVISION_FILE_PATH
         mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
