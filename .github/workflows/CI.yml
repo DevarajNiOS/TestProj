@@ -52,7 +52,7 @@ jobs:
         security find-identity
         echo $PWD
         xcrun security find-identity -v -p codesigning
-        sudo /usr/bin/codesign --force -s "Apple Development: Muralidhar Somisetty (958U3P4SWR)" echo $PWD
+        sudo /usr/bin/codesign --force -s "Apple Development: Muralidhar Somisetty (958U3P4SWR)" $PWD
         tar xzvf $DECRYPTED_PROVISION_FILE_PATH
         mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
         for PROVISION in `ls ./*.mobileprovision`
