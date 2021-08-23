@@ -44,5 +44,5 @@ jobs:
         env:
           DEVELOPER_DIR: ${{ matrix.xcode }}
           ...
-          YOUR_ENVIRONMENT_VARIABLES_HERE: ${{ secret.XXX }}
+          YOUR_ENVIRONMENT_VARIABLES_HERE: ${{ secrets.XXX }}
           ...
