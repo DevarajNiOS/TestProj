@@ -19,7 +19,7 @@ jobs:
       run: sudo xcode-select -switch /Applications/Xcode_12.4.app
       
     - name: Testing iOS app
-      run: chmod +x exec ./.github/scripts/test_app.sh
+      run: sudo exec ./.github/scripts/test_app.sh
      
     - name: Build Sample
       run: xcodebuild clean build -allowProvisioningUpdates -workspace TestProject.xcworkspace -scheme TestProject -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="Apple Development" CODE_SIGNING_REQUIRED=YES ONLY_ACTIVE_ARCH=NO
