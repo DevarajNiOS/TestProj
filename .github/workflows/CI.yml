@@ -20,6 +20,8 @@ jobs:
       
     - name: Testing iOS app
       run:  chmod +x ./.github/scripts/test_app.sh
+      
+      
      
     - name: Build Sample
       run: xcodebuild clean build -allowProvisioningUpdates -workspace TestProject.xcworkspace -scheme TestProject -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="Apple Development" CODE_SIGNING_REQUIRED=YES ONLY_ACTIVE_ARCH=NO
