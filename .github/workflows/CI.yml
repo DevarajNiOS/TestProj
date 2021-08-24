@@ -36,8 +36,13 @@ jobs:
     
     - name: Select xcodebuild
       run: sudo xcode-select -switch /Applications/Xcode_$XC_VERSION.app
-    
-    - name: Configure Code Signing
+      
+   - name: Decrypt secret
+     run:  /provisioning/import_provisioning.sh
+     env:
+          PROVISIONING_PASSWORD: x-access-token:${{ secrets.PROVISIONING_PASSWORD }}
+          
+   - name: Configure Code Signing
       run: |
         gpg -d -o "$DECRYPTED_CERTS_FILE_PATH" --pinentry-mode=loopback --passphrase "$CERTS_ENCRYPTION_PWD" "$ENCRYPTED_CERTS_FILE_PATH"
         gpg -d -o "$DECRYPTED_PROVISION_FILE_PATH" --pinentry-mode=loopback --passphrase "$PROVISION_ENCRYPTION_PWD" "$ENCRYPTED_PROVISION_FILE_PATH"
@@ -63,4 +68,15 @@ jobs:
     - name: Build Sample
       run: xcodebuild clean build -allowprov -workspace $XC_WORKSPACE -scheme $XC_SCHEME -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="Apple Development" CODE_SIGNING_REQUIRED=YES ONLY_ACTIVE_ARCH=NO
     
+
+
+
+
+
+
+
+
+
+
+
 
