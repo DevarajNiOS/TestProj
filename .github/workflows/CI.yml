@@ -10,13 +10,7 @@ jobs:
   build-sample:
 
     runs-on: macos-latest
-    env:
-        XC_VERSION: ${{ '12.4' }}
-        XC_WORKSPACE: ${{ 'TestProject.xcworkspace' }}
-        XC_SCHEME: ${{ 'TestProjectStage' }}
-        XC_CONFIGURATION: ${{ 'Stage' }}
-        XC_ARCHIVE_PATH: ${{ './TestProject.xcarchive' }}
-        XC_EXPORT_PATH: ${{ './artifacts/' }}
+
         
     steps:
     - name: Checkout repository
