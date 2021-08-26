@@ -22,8 +22,8 @@ jobs:
     - name: Select xcodebuild
       run: sudo xcode-select -switch /Applications/Xcode_12.4.app
    
-    - name: Install gpg
-      run: brew install gnupg
+#    - name: Install gpg
+#      run: brew install gnupg
      
     - name: Setup provisioning profile
       run:  chmod +x ./.github/scripts/decrypt_secrets.sh
