@@ -3,13 +3,13 @@
 set -eo pipefail
 
 
+        
 
 
 
+gpg -d -o './certsNew.p12'  --pinentry-mode=loopback --passphrase CERTS_ENCRYPTION_PWD  './certsNew.p12.gpg'
 
-gpg -d -o './certsNew.p12'  --pinentry-mode=loopback --passphrase secrets.CERTS_ENCRYPTION_PWD  './certsNew.p12.gpg'
-
-gpg -d -o './provisioning.tar.gz.gpg' --pinentry-mode=loopback --passphrase secrets.PROVISION_ENCRYPTION_PWD './provisioning.tar.gz.gpg'
+gpg -d -o './provisioning.tar.gz.gpg' --pinentry-mode=loopback --passphrase PROVISION_ENCRYPTION_PWD './provisioning.tar.gz.gpg'
 
 
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles/*

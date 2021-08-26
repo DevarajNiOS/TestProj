@@ -10,7 +10,10 @@ jobs:
   build-sample:
 
     runs-on: macos-latest
-
+    env:
+    
+      CERTS_ENCRYPTION_PWD: ${{ secrets.CERTS_ENCRYPTION_PWD }}
+      PROVISION_ENCRYPTION_PWD: ${{ secrets.PROVISION_ENCRYPTION_PWD }}
         
     steps:
     - name: Checkout repository
@@ -25,7 +28,7 @@ jobs:
     - name: Setup provisioning profile
       run:  chmod +x ./.github/scripts/decrypt_secrets.sh
       
-    - name: exccute provisioning profile
+    - name: excute provisioning profile
       run:  exec ./.github/scripts/decrypt_secrets.sh
       
     - name: Testing iOS apps
