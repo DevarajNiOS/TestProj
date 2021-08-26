@@ -23,9 +23,9 @@ jobs:
       run: brew install gnupg
      
     - name: Setup provisioning profile
-      run: ./.github/scripts/decrypt_secrets.sh
+      run:  chmod +x ./.github/scripts/decrypt_secrets.sh
       
-    - name: Testing iOS app
+    - name: Testing iOS apps
       run: chmod +x ./.github/scripts/test_app.sh
          
     - name: Exceute iOS app
