@@ -18,19 +18,26 @@ jobs:
       
     - name: Select xcodebuild
       run: sudo xcode-select -switch /Applications/Xcode_12.4.app
-      
-#    - name: Testing Swift package
-#      run:  chmod +x ./.github/scripts/test_swift_package.sh
-      
-#    - name: Testing Swift package
-#      run: exec ./.github/scripts/test_swift_package.sh
+   
+    - name: Install gpg
+      run: brew install gnupg
+     
+    - name: Setup provisioning profile
+      run: ./.github/secrets/decrypt_secrets.sh
       
     - name: Testing iOS app
       run: chmod +x ./.github/scripts/test_app.sh
          
     - name: Exceute iOS app
       run: exec ./.github/scripts/test_app.sh
+    
       
+#    - name: Testing Swift package
+#      run:  chmod +x ./.github/scripts/test_swift_package.sh
+      
+#    - name: Testing Swift package
+#      run: exec ./.github/scripts/test_swift_package.sh
+    
     - name: Build Sample
       run: xcodebuild clean build -allowprov -workspace TestProject.xcworkspace -scheme TestProjectStage -destination generic/platform=iOS' CODE_SIGN_IDENTITY="Apple Development" CODE_SIGNING_REQUIRED=YES ONLY_ACTIVE_ARCH=NO
 
