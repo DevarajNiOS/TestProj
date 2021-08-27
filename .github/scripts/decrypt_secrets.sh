@@ -9,7 +9,7 @@ set -eo pipefail
 gpg -d -o "$DECRYPTED_CERTS_FILE_PATH" --pinentry-mode=loopback --passphrase "$CERTS_ENCRYPTION_PWD""$ENCRYPTED_CERTS_FILE_PATH"
 gpg -d -o "$DECRYPTED_PROVISION_FILE_PATH" --pinentry-mode=loopback--passphrase"$PROVISION_ENCRYPTION_PWD""$ENCRYPTED_PROVISION_FILE_PATH"
 
-tar xzvf $DECRYPTED_PROVISION_FILE_PATH
+echo $gpg
 
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles/*
 echo $PWD
