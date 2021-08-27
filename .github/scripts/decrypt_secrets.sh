@@ -6,12 +6,10 @@ set -eo pipefail
         
 #/usr/bin/gpg –batch –no-tty "$@"
 
+gpg -d -o "$DECRYPTED_CERTS_FILE_PATH" --pinentry-mode=loopback --passphrase "$CERTS_ENCRYPTION_PWD""$ENCRYPTED_CERTS_FILE_PATH"
+gpg -d -o "$DECRYPTED_PROVISION_FILE_PATH" --pinentry-mode=loopback--passphrase"$PROVISION_ENCRYPTION_PWD""$ENCRYPTED_PROVISION_FILE_PATH"
 
-gpg -d -o './certsNew.p12'  --pinentry-mode=loopback --passphrase $CERTS_ENCRYPTION_PWD  './certsNew.p12.gpg'
-echo $gpg 
-
-gpg -d -o './provisioning.tar.gz.gpg' --pinentry-mode=loopback --passphrase $PROVISION_ENCRYPTION_PWD './provisioning.tar.gz.gpg'
-echo $gpg
+tar xzvf $DECRYPTED_PROVISION_FILE_PATH
 
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles/*
 echo $PWD
