@@ -10,10 +10,13 @@ jobs:
   build-sample:
 
     runs-on: macos-latest
-    env:
     
-      CERTS_ENCRYPTION_PWD: ${{ secrets.CERTS_ENCRYPTION_PWD }}
-      PROVISION_ENCRYPTION_PWD: ${{ secrets.PROVISION_ENCRYPTION_PWD }}
+    env:
+      
+        ENCRYPTED_PROVISION_FILE_PATH: ${{ './provisioning.tar.gz.gpg' }}
+        DECRYPTED_PROVISION_FILE_PATH: ${{ './provisioning.tar.gz' }}
+        CERTS_ENCRYPTION_PWD: ${{ secrets.CERTS_ENCRYPTION_PWD }}
+        PROVISION_ENCRYPTION_PWD: ${{ secrets.PROVISION_ENCRYPTION_PWD }}
         
     steps:
     - name: Checkout repository
