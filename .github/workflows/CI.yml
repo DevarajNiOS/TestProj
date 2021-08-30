@@ -5,11 +5,12 @@ on:
     branches: [ ActionScript ]
   pull_request:
     branches: [ master ]
+    
   workflow_dispatch:
     inputs:
       version:
-        description:code version
-        default:v1.0.0
+        description: code version
+        default: v1.0.0
         required:true
     
 jobs:
