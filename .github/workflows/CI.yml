@@ -1,12 +1,17 @@
 name: CDStage
 
-on: [workflow_dispatch]
+on:
   push:
     branches: [ ActionScript ]
   pull_request:
     branches: [ master ]
-  
-
+  workflow_dispatch:
+    inputs:
+      version:
+        description:code version
+        default:v1.0.0
+        required:true
+    
 jobs:
   build-sample:
 
@@ -89,3 +94,4 @@ jobs:
 #      with:
 #       name: Artifacts
 #       path: ./artifacts
+
