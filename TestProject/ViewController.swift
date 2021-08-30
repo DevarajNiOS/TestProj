@@ -11,6 +11,7 @@ import Alamofire
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var screenLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,6 +23,12 @@ class ViewController: UIViewController {
             return
         }
         print("base url val \(baseUrl)")
+        
+        if baseUrl.contains("stageapi") {
+            screenLabel.text = "This is Test App Stage"
+        } else {
+            screenLabel.text = "This is Prod App Prod"
+        }
     }
 
     func userAlamofire()  {

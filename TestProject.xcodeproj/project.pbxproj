@@ -622,6 +622,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 9.3.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yogifi.applications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -644,6 +645,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 9.3.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yogifi.applications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -817,6 +819,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 9.3.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yogifi.applications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = YogiFi_App_GithubAction_Development;
@@ -938,6 +941,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 9.3.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yogifi.applications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = YogiFi_App_GithubAction_Development;
