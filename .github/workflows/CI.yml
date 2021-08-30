@@ -5,6 +5,7 @@ on:
     branches: [ ActionScript ]
   pull_request:
     branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build-sample:
@@ -59,7 +60,18 @@ jobs:
           UUID=`/usr/libexec/PlistBuddy -c 'Print :UUID' /dev/stdin <<< $(security cms -D -i ./$PROVISION)`
           cp "./$PROVISION" "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.mobileprovision"
         done
-            
+     
+#    DeployStaging:
+#      name: Deploy to Stage
+#      if:github.event_name == 'pull_request'
+#      runs-on: macos-latest
+#      env:
+#        name: StageEnvironment
+#        url: ''
+#      steps:
+#        - name: Deploy to Stage
+#          run : Deploying to stage environment
+#
 ##    - name: Archive
 #    run: |
 #        mkdir artifacts
