@@ -1,6 +1,6 @@
 name: CDStage
 
-  on:
+on:
   push:
     branches: [ ActionScript ]
   pull_request:
