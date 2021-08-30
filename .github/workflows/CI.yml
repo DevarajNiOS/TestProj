@@ -1,11 +1,11 @@
 name: CDStage
 
-on:
+on: [workflow_dispatch]
   push:
     branches: [ ActionScript ]
   pull_request:
     branches: [ master ]
-  workflow_dispatch:
+  
 
 jobs:
   build-sample:
