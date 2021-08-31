@@ -63,11 +63,12 @@ jobs:
         done
 
     - name: Deploy
+      run: StageEnvironment
       
       env:
        name: Stage Environment deployment
        url: 'https://stageapi.gyaanifi.com'
-       run: StageEnvironment
+       
  
 
         
