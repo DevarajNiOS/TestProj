@@ -70,9 +70,10 @@ jobs:
       env:
         name: StageEnvironment
         url: 'https://stageapi.gyaanifi.com'
-#      steps:
-#        - name: Deploy to Stage
-#          run : Deploying to stage environment
+        
+      steps:
+          - name: Deploy to Stage
+            run : Deploying to stage environment
           
 
 
