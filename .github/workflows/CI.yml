@@ -61,19 +61,15 @@ jobs:
           UUID=`/usr/libexec/PlistBuddy -c 'Print :UUID' /dev/stdin <<< $(security cms -D -i ./$PROVISION)`
           cp "./$PROVISION" "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.mobileprovision"
         done
-            
-  DeployStaging:
 
-      name: Deploy to Stage
-      if: github.event_name == 'pull_request'
-      runs-on: macos-latest
+    - name: Deploy
+      
       env:
-        name: Stage Environment deployment
-        url: 'https://stageapi.gyaanifi.com'
-        
-      steps:
-       - name: Deploy to Stage
-         run : StageEnvironment 
+       name: Stage Environment deployment
+       url: 'https://stageapi.gyaanifi.com'
+       run: StageEnvironment
+ 
+
         
     
           
