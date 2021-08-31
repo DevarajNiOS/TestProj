@@ -64,16 +64,15 @@ jobs:
             
   DeployStaging:
 
-      name: Deploy to Stage
-      if: github.event_name == 'pull_request'
-      runs-on: macos-latest
-      env:
-        name: StageEnvironment
-        url: 'https://stageapi.gyaanifi.com'
+   steps:
+     name: Deploy to Stage
+  if: github.event_name == 'pull_request' 
+  
+        env:
+         name: StageEnvironment
+         url: 'https://stageapi.gyaanifi.com'
         
-      steps:
-          - name: Deploy to Stage
-            run : Deploying to stage environment
+    
           
 
 
