@@ -60,7 +60,7 @@ jobs:
         done
   DeployStage:
       name: Deploy to Staging 
-      if: github.event_name == 'pull_request'
+      if: github.event.ref == 'refs/heads/main'
       needs: [Build-sample]
       runs-on: macos-latest
       environment: 
@@ -69,14 +69,5 @@ jobs:
       steps:
       - name: Deploy
         run: echo I am deploying!
-  DeployProd:
-    name: Deploy to Production 
-    needs: [DeployStage]
-    runs-on: macos-latest
-    environment: 
-      name: ProdEnvironment
-      url: 'http://34.71.82.187/'
-    steps:
-      - name: Deploy
-        run: echo I am deploying! 
+
     
