@@ -66,6 +66,4 @@ jobs:
       environment: 
         name: StageEnvironment
         url: 'https://stageapi.gyaanifi.com/'
-      steps:
-      - name: Deploy
-        run: echo $StageEnvironment
+      
