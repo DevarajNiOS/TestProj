@@ -68,6 +68,8 @@ jobs:
         url: 'https://stageapi.gyaanifi.com/'
       steps:
       - name: Deploy
-        run: echo I am deploying!
+        run: xcodebuild clean build -allowProvisioningUpdates -workspace TestProject.xcworkspace -scheme TestProject -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="Apple Development" CODE_SIGNING_REQUIRED=YES ONLY_ACTIVE_ARCH=NO
+    
+
 
     
