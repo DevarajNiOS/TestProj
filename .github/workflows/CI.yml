@@ -64,7 +64,7 @@ jobs:
       needs: [Build-sample]
       runs-on: macos-latest
       environment: 
-        name: StageEnvironment
+        name: TestProjectStage
         url: 'https://stageapi.gyaanifi.com/'
       steps:
       - name: Deploy
