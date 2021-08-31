@@ -63,6 +63,7 @@ jobs:
         done
             
 
+<<<<<<< HEAD
 
 DeployStaging:
       name: Deploy to Stage
@@ -76,6 +77,9 @@ DeployStaging:
 #          run : Deploying to stage environment
           
 #    - name: Archive
+=======
+#    -   name: Archive
+>>>>>>> d0dcdaec7fed15a826172016deac4952bff1d01d
 #      run: |
 #        mkdir artifacts
 #        /usr/bin/xcodebuild archive -workspace "$XC_WORKSPACE" -scheme "$XC_SCHEME" -configuration "$XC_CONFIGURATION" -archivePath "$XC_ARCHIVE_PATH" "OTHER_CODE_SIGN_FLAGS=--keychain '$KEYCHAIN'"
