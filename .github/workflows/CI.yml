@@ -69,4 +69,14 @@ jobs:
       steps:
       - name: Deploy
         run: echo I am deploying!
-      
+  DeployProd:
+    name: Deploy to Production 
+    needs: [DeployStage]
+    runs-on: macos-latest
+    environment: 
+      name: ProdEnvironment
+      url: 'http://34.71.82.187/'
+    steps:
+      - name: Deploy
+        run: echo I am deploying! 
+    
