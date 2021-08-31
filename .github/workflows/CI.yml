@@ -4,7 +4,7 @@ on:
   push:
     branches: [ ActionScript ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:
@@ -60,7 +60,7 @@ jobs:
         done
   DeployStage:
       name: Deploy to Staging 
-      if: github.event.ref == 'refs/heads/main'
+      if: github.event_name == 'pull_request'
       needs: [Build-sample]
       runs-on: macos-latest
       environment: 
