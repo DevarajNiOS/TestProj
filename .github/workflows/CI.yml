@@ -68,4 +68,4 @@ jobs:
         url: 'https://stageapi.gyaanifi.com/'
       steps:
       - name: Deploy
-        run: echo I am deploying! 
+        run: echo $StageEnvironment
