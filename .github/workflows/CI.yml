@@ -69,6 +69,8 @@ jobs:
        name: Stage Environment deployment
        url: 'https://stageapi.gyaanifi.com'
        
+#        trying with build steps
+       
  
 
         
