@@ -21,8 +21,17 @@ platform :ios do
    end
 end
 
-lane :tests do
-  run_tests(workspace: "Example.xcworkspace",
-            devices: ["iPhone 6s", "iPad Air"],
-            scheme: "MyAppTests")
-end
+desc "Push a new beta build to TestFlight"
+    lane :beta do
+        setup_ci
+        match(type: "appstore", readonly: is_ci)
+        build_app(workspace: "TestProject.xcworkspace", scheme: "TestProjectStage") # Change name of workspace
+        upload_to_testflight(changelog: ENV["CHANGELOG"] || "No changelog provided")
+    end
+
+#lane :tests do
+#  run_tests(workspace: "Example.xcworkspace",
+#            devices: ["iPhone 6s", "iPad Air"],
+#            scheme: "MyAppTests")
+#end
+
