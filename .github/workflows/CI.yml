@@ -11,7 +11,6 @@ jobs:
   Build-sample:
   
     runs-on: macos-latest
-	
     env:
         XC_VERSION: ${{ '12.4' }}
         XC_WORKSPACE: ${{ 'TestProject.xcworkspace' }}
