@@ -1,2 +1,0 @@
-git_url "https://github.com/DevarajNiOS/TestProj"
-type "development" # The default type, can be: appstore, adhoc or development

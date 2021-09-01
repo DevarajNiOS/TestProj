@@ -33,6 +33,7 @@ jobs:
         KEYCHAIN: ${{ 'TestProject.keychain' }}
         MACOS_CERTIFICATE: ${{ secrets.MACOS_CERTIFICATE }}
         MACOS_CERTIFICATE_PWD: ${{ secrets.MACOS_CERTIFICATE_PWD }}
+        FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{secrets.TestfligthtTransporterPassword}}
         
     steps:
     - uses: actions/checkout@v2
