@@ -3,14 +3,15 @@ name: CDStage
 on:
   workflow_dispatch:
   push:
-    branches: [ ActionScript ]
+    branches: [ ActionScript  ]
   pull_request:
     branches: [ master ]
 
 jobs:
   Build-sample:
-  
+
     runs-on: macos-latest
+    
     env:
         XC_VERSION: ${{ '12.4' }}
         XC_WORKSPACE: ${{ 'TestProject.xcworkspace' }}
@@ -30,9 +31,15 @@ jobs:
         KEYCHAIN: ${{ 'TestProject.keychain' }}
         MACOS_CERTIFICATE: ${{ secrets.MACOS_CERTIFICATE }}
         MACOS_CERTIFICATE_PWD: ${{ secrets.MACOS_CERTIFICATE_PWD }}
+        
     steps:
     - uses: actions/checkout@v2
     
+    - name: Set environment variables from project settings
+      env:
+       ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      run: |
+          exec .github/scripts/set-env-from-xcodeproj.sh
     - name: Select xcodebuild
       run: sudo xcode-select -switch /Applications/Xcode_$XC_VERSION.app
     
@@ -58,6 +65,7 @@ jobs:
           UUID=`/usr/libexec/PlistBuddy -c 'Print :UUID' /dev/stdin <<< $(security cms -D -i ./$PROVISION)`
           cp "./$PROVISION" "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.mobileprovision"
         done
+        
   DeployStage:
       name: Deploy to Staging 
       if: github.event.ref == 'refs/heads/main'
@@ -66,9 +74,6 @@ jobs:
       environment: TestProjectStage
       steps:
       - uses: actions/checkout@v2
-      - name: Deploy
-        run: xcodebuild clean build -allowProvisioningUpdates -workspace TestProject.xcworkspace -scheme TestProject -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="Apple Development" CODE_SIGNING_REQUIRED=YES ONLY_ACTIVE_ARCH=NO
     
-
-
-    
+      - name: Deploy to Staging
+        run: xcodebuild clean build -allowProvisioningUpdates -workspace TestProject.xcworkspace -scheme TestProject -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="Apple Development" CODE_SIGNING_REQUIRED=Yes ONLY_ACTIVE_ARCH=NO
