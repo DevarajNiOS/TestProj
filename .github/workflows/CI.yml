@@ -68,5 +68,12 @@ jobs:
           cp "./$PROVISION" "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.mobileprovision"
         done
         
-    - name: Deploy to Staging
-      run: xcodebuild clean build -allowProvisioningUpdates -workspace TestProject.xcworkspace -scheme TestProject -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="Apple Development" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+    - name: Running dev env
+      if: github.event.inputs.environment == 'TestProjectStage'
+      run: echo "Running dev env with mode ${{ github.event.inputs.mode }}"
+    - name: Running prod env
+      if: github.event.inputs.environment == 'TestProjectProduction'
+      run: echo "Running prod env with mode ${{ github.event.inputs.mode }}"
+    
+    - name: Build Sample
+      run: xcodebuild clean build -allowProvisioningUpdates -workspace TestProject.xcworkspace -scheme TestProject -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="Apple Development" CODE_SIGNING_REQUIRED=Yes ONLY_ACTIVE_ARCH=NO
