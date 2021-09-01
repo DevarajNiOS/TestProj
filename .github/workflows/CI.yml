@@ -61,14 +61,5 @@ jobs:
           cp "./$PROVISION" "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.mobileprovision"
         done
         
-  DeployStage:
-      name: Deploy to Staging 
-      if: github.event.ref == 'refs/heads/main'
-      needs: [Build-sample]
-      runs-on: macos-latest
-      environment: TestProjectStage
-      steps:
-      - uses: actions/checkout@v2
-    
-      - name: Deploy to Staging
-        run: xcodebuild clean build -allowProvisioningUpdates -workspace TestProject.xcworkspace -scheme TestProject -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="Apple Development" CODE_SIGNING_REQUIRED=Yes ONLY_ACTIVE_ARCH=NO
+    - name: Deploy to Staging
+      run: xcodebuild clean build -allowProvisioningUpdates -workspace TestProject.xcworkspace -scheme TestProject -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="Apple Development" CODE_SIGNING_REQUIRED=YES ONLY_ACTIVE_ARCH=NO
