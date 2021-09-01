@@ -2,6 +2,13 @@ name: CDStage
 
 on:
   workflow_dispatch:
+   inputs:
+      environment:
+        description: 'Environment to run'     
+        required: true
+        default: 'TestProjectStage'
+      mode:
+        description: 'Running mode'
   push:
     branches: [ ActionScript  ]
   pull_request:
